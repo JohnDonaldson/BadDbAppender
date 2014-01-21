@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="C:/eclipseWorkSpace1/NtierCommonJars/Logging/slf4j-api-1.7.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/eclipseWorkSpace1/NtierCommonJars/Logging/logback-android-1.0.10-2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/eclipseWorkSpace1/NtierCommonJars/JDBC/instantclient10_1/ojdbc14.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/adt-bundle-windows-x86-20130917/eclipse/plugins/org.eclipse.jdt.annotation_1.0.1.v20130111-135246.jar"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="src" path=".apt_generated">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

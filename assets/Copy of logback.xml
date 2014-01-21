@@ -1,0 +1,22 @@
+<configuration debug="true">
+  <!-- Create a file appender for a log in the application's data directory -->
+  <appender name="file" class="ch.qos.logback.core.FileAppender">
+      <!-- lazy initialization: don't create the file until 1st write -->
+<!--     <lazy>true</lazy> -->
+    <file>/data/data/com.ntier.android.jdbctest/files/GAEL.log</file>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS}\t[%thread]\t%-2level\t%logger\t%msg%n</pattern>
+    </encoder>  
+  </appender>
+  <!-- Create a logcat appender -->
+  <appender name="logcat" class="ch.qos.logback.classic.android.LogcatAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  
+  <root level="ALL">
+    <appender-ref ref="file" />
+    <appender-ref ref="logcat" />
+    </root>
+</configuration>

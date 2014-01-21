@@ -1,0 +1,49 @@
+<configuration debug="true">
+    <!-- sends logs to logback-beagle -->
+  <consolePlugin />
+    
+  <!-- Create a tab delimited file appender for a log in the application's data directory -->
+  <!--If the Android app name is changed make sure to update this LOG_DIR  -->
+<!--   <property name="LOG_DIR" value="/data/data/com.ntier.android.jdbctest/files/logs/" /> -->
+  
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <!-- BUGGY?: lazy initialization: true = don't create the file until 1st write -->
+    <!-- <lazy>true</lazy> -->
+<!--     APPHOME is set in MainActivity -->
+    <file>${APPHOME}/logs/GAEL.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <fileNamePattern>${APPHOME}/logs/GAEL.%i.log.zip</fileNamePattern>
+      <minIndex>1</minIndex>
+      <maxIndex>3</maxIndex>
+    </rollingPolicy>
+
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <maxFileSize>100KB</maxFileSize>
+    </triggeringPolicy>
+    
+    <encoder>
+      <pattern>%d{yy.MM.dd HH:mm:ss.SSS}\t[%thread]\t%level\t%logger\t%msg%n</pattern>
+      <outputPatternAsHeader>true</outputPatternAsHeader>
+      <immediateFlush>false</immediateFlush>
+      
+    </encoder>  
+  </appender>
+  
+  <appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+    <appender-ref ref="FILE" />
+  </appender>
+  
+  
+  <!-- Create a logcat appender -->
+  <appender name="logcat" class="ch.qos.logback.classic.android.LogcatAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS yy.MM.dd}\t[%thread]\t%-5level\t%logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  
+  <root level="ALL">
+    <appender-ref ref="ASYNC" />
+    <!-- <appender-ref ref="FILE" /> -->
+    <appender-ref ref="logcat" />
+  </root>
+</configuration>
